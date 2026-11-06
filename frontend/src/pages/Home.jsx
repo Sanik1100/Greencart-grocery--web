@@ -8,6 +8,7 @@ import NewsLetter from '../components/NewsLetter'
 const Home = () => {
   return (
     <div className='mt-10'>
+	  <h2> Greencart </h2>
         <MainBanner/>
         <Categories/>
         <BestSeller/>

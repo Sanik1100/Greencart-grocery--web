@@ -19,7 +19,10 @@ await connectDB();
 await connectCloudinary();
 
  // Allow multiple origins
- const allowedOrigins= ['http://localhost:5173'];
+ const allowedOrigins= [
+'http://localhost:5173',
+'http://localhost:8080'
+];
 
 // middleware configuration
 app.use(express.json());
@@ -29,6 +32,17 @@ app.use(cors({
     credentials: true
 }));
 app.get('/',(req,res)=> res.send("API is working"));
+app.get('/health',(req,res) => {
+	res.status(200).json({
+		status:	'ok'
+		});
+		});
+app.get("/version",(req,res) => {
+	res.status(200).json({
+		app: 'greencart-backend',
+		version: 'v3'
+		});
+		});
 app.use('/api/user',userRouter);
 app.use('/api/seller',sellerRouter);
 app.use('/api/product',productRouter);
@@ -37,6 +51,6 @@ app.use('/api/address',addressRouter);
 app.use('/api/order',orderRouter);
 app.use('/api/esewa', esewaRouter);
 
-app.listen(port,()=>{
+app.listen(port,'0.0.0.0',()=>{
     console.log(`Server is running on http://localhost:${port}`)
 })

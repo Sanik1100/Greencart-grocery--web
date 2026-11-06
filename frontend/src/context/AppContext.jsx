@@ -13,7 +13,7 @@ import axios from 'axios';
 
 // CONTEXT CREATION - Setting up the global state container
 axios.defaults.withCredentials= true;
-axios.defaults.baseURL= import.meta.env.VITE_BACKEND_URL;
+axios.defaults.baseURL= import.meta.env.VITE_BACKEND_URL || '';
 
 // Creating a new context called AppContext
 // This allows different components to share global state/data without prop drilling
