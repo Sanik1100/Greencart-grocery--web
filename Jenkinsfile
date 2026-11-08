@@ -1,11 +1,15 @@
 pipeline{
 	agent any
 
+	environment{
+		APP_NAME = 'Greencart'
+	}
+
 	stages{
 
 		stage('Welcome'){
 			steps{
-				echo "Starting Greencart CI Pipeline"
+				echo "Starting ${APP_NAME} CI Pipeline"
 			}
 			}
 
