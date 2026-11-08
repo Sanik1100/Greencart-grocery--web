@@ -89,7 +89,7 @@ pipeline{
 
 
 				docker run --rm \
-					--network "$TEST_NETWORK"
+					--network "$TEST_NETWORK" \
 					curlimages/curl:8.12.1 \
 					-fsS \
 					--retry 10 \
@@ -101,6 +101,7 @@ pipeline{
 
 				echo "backend and frontend tests passed"
 			'''
+			}
 			}
 			}
 			}
